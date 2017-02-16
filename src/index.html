@@ -4,20 +4,27 @@
   <meta charset="utf-8">
   <title>WebileSoftTest</title>
   <base href="/">
-  <script src="http://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?lang=en_US" type="text/javascript"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script type="text/javascript">
-    var map;
+    ymaps.ready(init);
+    var myMap,
+        myPlacemark;
 
-    DG.then(function () {
-        map = DG.map('map', {
-            center: [59.879037, 59.87903],
-            zoom: 13
-        });
+    function init(){     
+      myMap = new ymaps.Map("map", {
+        center: [59.879037, 8.575609],
+        zoom: 13
+      });
 
-        DG.marker([59.879037, 59.87903]).addTo(map);
-    });
+      myPlacemark = new ymaps.Placemark([59.879037, 8.575609], { 
+        hintContent: '', 
+        balloonContent: '' 
+      });
+
+      myMap.geoObjects.add(myPlacemark);
+    }
   </script>
 </head>
 <body>
