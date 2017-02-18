@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Response } from '@angular/http';
 import { HttpService } from '../../services/http.service';
 import {Subscription } from 'rxjs/Subscription';
 import { Place } from '../../place';
+
+import {
+   SebmGoogleMapMarker, SebmGoogleMapInfoWindow
+} from 'angular2-google-maps/core';
 
 @Component({
   moduleId: module.id,
@@ -12,7 +16,12 @@ import { Place } from '../../place';
   providers: [HttpService]
 })
 export class MarkComponent implements OnInit {
-  places: Place[];  
+  places: Place[];
+  isClicked: boolean;
+  selectedLocation: Location;
+  lastClicked: SebmGoogleMapInfoWindow;
+
+  @Output() viewDetails: EventEmitter<any> = new EventEmitter();  
 
   constructor(private httpService: HttpService) {}
      
@@ -20,7 +29,10 @@ export class MarkComponent implements OnInit {
     this.httpService.getDataToMap().subscribe((data: Response) => this.places=data.json());
   }
 
-  viewDetails(id) {
-    console.log(id);
+  closeDetails(infoWindow) {
+    if (this.lastClicked && this.lastClicked !== infoWindow){
+         this.lastClicked.close();
+    }
+    this.lastClicked = infoWindow;
   }
 }

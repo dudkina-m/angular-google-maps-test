@@ -3,5 +3,9 @@
                                  [longitude]="place.location.lng" 
                                  [label]="place.id"
                                  [title]="place.title"
-                                 >
-  </sebm-google-map-marker>
+                                 [zIndex]="place.id"
+                                 (markerClick)="closeDetails(infowindow)">
+  <sebm-google-map-info-window #infowindow [disableAutoPan]="true" [maxWidth]="600" >
+    <details-mark [id]="place.id"></details-mark>
+  </sebm-google-map-info-window>
+</sebm-google-map-marker>

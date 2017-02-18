@@ -11,7 +11,7 @@ import { Mark } from '../mark';
   providers: [HttpService]
 })
 export class DetailsComponent implements OnInit {
-  id: number = 1;
+  @Input() id: number;
   mark: Mark;
 
   constructor(private httpService: HttpService) {}
@@ -19,5 +19,4 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     this.httpService.getDataToMark(this.id).subscribe((data: Response) => this.mark=data.json());
   }
-
 }

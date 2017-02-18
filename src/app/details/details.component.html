@@ -1,3 +1,11 @@
-<div class="details">
-  <p>{{mark?.title}}</p>
-</div>
+<table>
+  <tr>
+    <td><h3>{{mark?.title}}</h3></td>
+    <td><a href={{mark?.buttons[0].actionData}} 
+     style.backgroundColor={{mark?.buttons[0].color}}>{{mark?.buttons[0].text}}</a></td>
+  </tr>
+</table>
+
+<p><img src={{mark?.imageUrl}} height="200px">{{mark?.description}}</p>    
+
+  
