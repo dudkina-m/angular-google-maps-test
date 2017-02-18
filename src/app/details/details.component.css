@@ -1,0 +1,10 @@
+p {
+  padding-left: 10px;
+}
+
+.details {
+  display: none;
+  position: absolute;
+  float: rigth;
+  width: 30%;
+}
