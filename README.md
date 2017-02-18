@@ -16,3 +16,9 @@ http://api.dev.aispot.no/lighthouse/content/{id}
 Where ID is a spot id from the first request.
 
 For building UI we suggest to use either Bootstrap or Material Design libs.
+
+# Запуск веб-приложения
+Клонируем директорию или скачиваем на компьютер
+Устанавливаем модули Node: npm install
+Запускаем сервер: npm start
+После запуска сервера переходи в браузер, в адресной строке вводим http://localhost:4200/
