@@ -1,0 +1,11 @@
+<sebm-google-map-marker class="marker" 
+    *ngFor="let place of places" [latitude]="place.location.lat" 
+                                 [longitude]="place.location.lng" 
+                                 [label]="place.id"
+                                 [title]="place.title"
+                                 [zIndex]="place.id"
+                                 (markerClick)="closeDetails(infowindow)">
+  <sebm-google-map-info-window #infowindow [disableAutoPan]="true" [maxWidth]="600" >
+    <details-mark [id]="place.id"></details-mark>
+  </sebm-google-map-info-window>
+</sebm-google-map-marker>
